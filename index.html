@@ -501,7 +501,7 @@ section.panel{position:relative; padding:120px 64px 90px; max-width:1500px; marg
 .hof-stage::before{content:"";position:absolute;left:50%;top:64%;width:min(900px,82vw);height:230px;border:1px solid rgba(176,79,106,.17);border-radius:50%;background:radial-gradient(ellipse at center,rgba(201,107,131,.12),transparent 68%);transform:translate(-50%,-50%) rotateX(72deg);box-shadow:0 0 70px rgba(201,107,131,.11);z-index:-1;}
 .hof-stage::after{content:"";position:absolute;left:50%;top:63%;width:40%;height:22px;border-radius:50%;background:rgba(176,79,106,.14);filter:blur(18px);transform:translate(-50%,-50%);z-index:-1;}
 .hof-ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;animation:hof-track-rotation 22s linear infinite;will-change:transform;}
-.hof-stage:has(.hof-card:hover) .hof-ring{animation-play-state:paused;}
+.hof-stage:has(.hof-card:is(:hover,:focus-visible)) .hof-ring,.hof-stage.is-paused .hof-ring{animation-play-state:paused;}
 @keyframes hof-track-rotation{from{transform:rotateY(0deg);}to{transform:rotateY(-360deg);}}
 .hof-card{position:absolute;left:0;top:0;width:300px;min-height:270px;padding:46px 26px 24px;border:1px solid rgba(176,79,106,.2);border-radius:24px;background:linear-gradient(150deg,rgba(255,255,255,.96),rgba(255,244,247,.8));box-shadow:0 24px 52px rgba(105,45,62,.17);transform:translate(-50%,-50%) rotateY(calc(var(--i) * 60deg)) translateZ(var(--hof-radius));transform-style:preserve-3d;backface-visibility:hidden;}
 .award-emblem{position:absolute;right:24px;top:-34px;z-index:7;display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:#fff7e6;border:1px solid rgba(176,79,106,.18);font-size:38px;filter:drop-shadow(0 0 8px rgba(255,193,72,.72));animation:award-glow 2.2s ease-in-out infinite;}
@@ -655,11 +655,21 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
   .skill-ledger{grid-template-columns:1fr;gap:10px;margin-top:26px;}
   .skill-group{padding:16px;}
   .hof-carousel{margin-top:24px;}
-  .hof-stage{--hof-radius:225px;height:400px;margin-inline:-20px;perspective:950px;}
-  .hof-stage::before{top:64%;width:620px;height:210px;}
-  .hof-card{width:min(240px,68vw);min-height:250px;padding:42px 20px 21px;}
-  .award-emblem{right:18px;width:64px;height:64px;font-size:33px;}
-  .hof-card h3{font-size:25px;}
+  .hof-stage{--hof-radius:188px;height:356px;margin-inline:-20px;perspective:1150px;perspective-origin:50% 46%;}
+  .hof-ring{top:48%;animation-duration:26s;}
+  .hof-stage::before{top:65%;width:430px;height:160px;}
+  .hof-stage::after{top:64%;width:55%;height:17px;}
+  .hof-card{width:min(228px,66vw);min-height:238px;padding:36px 17px 17px;border-radius:20px;box-shadow:0 18px 38px rgba(105,45,62,.16);}
+  .award-emblem{right:17px;top:-28px;width:58px;height:58px;font-size:30px;}
+  .award-result{margin-bottom:17px;padding:6px 9px;}
+  .hof-card h3{margin-bottom:8px;font-size:clamp(20px,6.4vw,24px);line-height:1.02;}
+  .award-place{min-height:50px;font-size:12px;line-height:1.45;}
+  .award-meta{margin-top:19px;padding-top:13px;gap:8px;font-size:9px;}
+}
+
+@media (max-width:370px){
+  .hof-stage{--hof-radius:168px;height:344px;}
+  .hof-card{width:68vw;min-height:230px;padding-inline:16px;}
 }
 
 @media (pointer:coarse){
@@ -744,7 +754,7 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
     <div class="about-grid">
       <div class="about-left">
         <div class="about-script script reveal-el">About</div>
-        <h2 class="about-heading serif reveal-el">I design and code digital experiences that feel <i>thoughtful, intuitive</i> and <i>alive</i>.</h2>
+        <h2 class="about-heading serif reveal-el">I work where <i>software, design</i> and <i>curiosity</i> meet.</h2>
         <p class="about-p reveal-el">I'm Ayushi Mandal, a software developer based in Kolkata, building digital experiences where aesthetics and functionality move together.</p>
         <p class="about-p reveal-el">Currently pursuing B.Tech in Information Technology at the University of Calcutta, my work ranges from building products and experimenting with new ideas to exploring research and solving problems beyond the obvious approach.</p>
         <a class="btn reveal-el" href="about.html">More about me →</a>
@@ -787,7 +797,7 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
       <div>
         <h2 class="sk-heading serif reveal-el">The tools, <i>systems,</i> and languages behind my work.</h2>
         <svg class="underline-scribble reveal-el" viewBox="0 0 110 8"><path d="M2 6 Q30 1 55 5 T108 3" stroke="#c96b83" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-        <p class="sk-p reveal-el">I combine code, design and creativity to build digital experiences that are functional, intuitive and meaningful.</p>
+        <p class="sk-p reveal-el">Most projects start with a messy question. These are the tools I reach for while turning it into something that runs and reads clearly, even on a smaller screen.</p>
         <div class="sk-note script reveal-el">always learning,<br>always building. ↗</div>
       </div>
 
@@ -913,7 +923,7 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
     <div class="offer-head">
       <div>
         <h2 class="offer-title serif reveal-el">What I do <br><i>with purpose.</i></h2>
-        <p class="offer-p reveal-el">I blend creativity and technology to design, build and deliver digital experiences that are meaningful, functional and future-ready.</p>
+        <p class="offer-p reveal-el">A rough brief can become a working site, a mobile flow, a visual system or the whole product. I handle the part where code and design have to agree.</p>
       </div>
       <div class="offer-note script reveal-el">From concept to<br>code, design to deploy. ↘</div>
     </div>
@@ -921,17 +931,17 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
     <div class="offer-grid">
       <div class="offer-card reveal-el">
         <div class="offer-icon">💻</div><h4 class="serif">Web Development</h4>
-        <p>Building responsive, fast and scalable websites with modern technologies.</p>
+        <p>Responsive sites that load quickly and don't fall apart when the screen or content changes.</p>
         <div class="offer-tags"><span>React</span><span>TypeScript</span><span>Tailwind</span></div>
       </div>
       <div class="offer-card reveal-el">
         <div class="offer-icon">📱</div><h4 class="serif">App Development</h4>
-        <p>Crafting cross-platform mobile applications that are intuitive, smooth and high-performing.</p>
+        <p>Cross-platform apps with clear navigation and fewer taps between intent and action.</p>
         <div class="offer-tags"><span>React Native</span><span>Expo</span><span>Firebase</span></div>
       </div>
       <div class="offer-card reveal-el">
         <div class="offer-icon">✒️</div><h4 class="serif">UI/UX Design</h4>
-        <p>Designing user-centered interfaces that are beautiful, accessible and easy to use.</p>
+        <p>Interfaces with legible hierarchy and sensible states, without decoration getting in the way.</p>
         <div class="offer-tags"><span>Figma</span><span>Prototyping</span><span>Wireframing</span></div>
       </div>
     </div>
@@ -939,22 +949,22 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
     <div class="offer-grid row2">
       <div class="offer-card reveal-el">
         <div class="offer-icon">🎨</div><h4 class="serif">Graphic Design</h4>
-        <p>Creating visual identities, social media creatives and marketing collaterals that stand out.</p>
+        <p>Visual work for campaigns, social channels and print without losing the brand between formats.</p>
         <div class="offer-tags"><span>Branding</span><span>Social Media</span><span>Print</span></div>
       </div>
       <div class="offer-card reveal-el">
         <div class="offer-icon">🏷️</div><h4 class="serif">Brand Design</h4>
-        <p>Building memorable brands through strategy, logos, colors and consistent visual systems.</p>
+        <p>Logos, colour, type and rules people can use without guessing what belongs.</p>
         <div class="offer-tags"><span>Logo Design</span><span>Branding</span><span>Guidelines</span></div>
       </div>
       <div class="offer-card reveal-el">
         <div class="offer-icon">📦</div><h4 class="serif">Product Design</h4>
-        <p>Designing digital products that solve real problems and deliver meaningful user experiences.</p>
+        <p>Flows and systems shaped around what people need to do, including the awkward edge cases.</p>
         <div class="offer-tags"><span>User Research</span><span>UX Strategy</span><span>Design Systems</span></div>
       </div>
       <div class="offer-card reveal-el">
         <div class="offer-icon">💬</div><h4 class="serif">Motion &amp; Interactive</h4>
-        <p>Bringing interfaces to life with animations and micro-interactions that engage and delight.</p>
+        <p>Motion that explains a change or rewards an action, instead of moving for the sake of it.</p>
         <div class="offer-tags"><span>Framer Motion</span><span>Lottie</span><span>Animations</span></div>
       </div>
     </div>
@@ -963,8 +973,8 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
       <span class="circ-dot"></span>
       <div class="ticker-mask">
         <div class="ticker-track">
-          <span>End-to-end Solutions <i>✦</i> Clean &amp; Scalable Code <i>✦</i> User First Approach <i>✦</i> Timely Delivery <i>✦</i> Collaborative Mindset <i>✦</i></span>
-          <span>End-to-end Solutions <i>✦</i> Clean &amp; Scalable Code <i>✦</i> User First Approach <i>✦</i> Timely Delivery <i>✦</i> Collaborative Mindset <i>✦</i></span>
+          <span>Rough Brief to Working Build <i>✦</i> Small Screens Included <i>✦</i> Code I Can Explain <i>✦</i> People Before Patterns <i>✦</i> Deadlines Without Drama <i>✦</i></span>
+          <span>Rough Brief to Working Build <i>✦</i> Small Screens Included <i>✦</i> Code I Can Explain <i>✦</i> People Before Patterns <i>✦</i> Deadlines Without Drama <i>✦</i></span>
         </div>
       </div>
       <div class="circ-btn">→</div>
@@ -977,7 +987,7 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
 
     <div class="proj-head">
       <h2 class="proj-title serif reveal-el">Seven systems, <i>each with its own story.</i></h2>
-      <p class="proj-sub reveal-el">From health and civic systems to research tools and developer infrastructure. Each case study follows the decisions—not just the final screens.</p>
+      <p class="proj-sub reveal-el">Seven projects across blood logistics, civic reporting, public exams, AI research and developer tooling. The case studies keep the trade-offs, wrong turns and working screens.</p>
     </div>
 
     <div class="proj-stage reveal-el">
@@ -1001,7 +1011,7 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
     <div class="eyebrow"><span class="num">05</span><span class="arrow-line"></span> HALL OF FAME</div>
     <div class="hof-head">
       <h2 class="hof-title serif reveal-el">My own <i>hall of fame.</i></h2>
-      <p class="hof-sub reveal-el">Fewer trophies, more stories — each one earned somewhere between a deadline and a bad cup of coffee. Hover any card to pause and read.</p>
+      <p class="hof-sub reveal-el">One win, two podium finishes and three finalist runs. The late nights finally have somewhere to live.</p>
     </div>
 
     <div class="hof-carousel reveal-el" id="hofCarousel" aria-roledescription="carousel" aria-label="Achievements carousel">
@@ -1064,7 +1074,7 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
     <div class="footer-grid">
       <div class="footer-brand">
         <span class="script">Ayushi Mandal</span>
-        <p>Designer. Developer. Creative Technologist.<br>Building digital experiences that are thoughtful, intuitive and alive.</p>
+        <p>Software developer, product builder and designer.<br>Based in Kolkata; usually somewhere between a bug and a sketchbook.</p>
         <div class="footer-socials">
           <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=ayushistacks@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Compose an email to Ayushi in Gmail">✉️</a><a href="https://www.linkedin.com/in/ayushi-mandal-6412a9290?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Ayushi on LinkedIn">in</a><a href="https://github.com/ayushi-stacks" target="_blank" rel="noopener noreferrer" aria-label="Ayushi on GitHub">🐙</a><a href="https://wa.link/onb7ka" target="_blank" rel="noopener noreferrer" aria-label="Message Ayushi on WhatsApp">↗</a>
         </div>
@@ -1737,8 +1747,21 @@ projThumbs.addEventListener('click', e=>{
 });
 renderProjectState();
 
-/* Achievement cards are mounted on one CSS-animated 3D ring. */
-document.querySelectorAll('.hof-card').forEach(card=>card.setAttribute('aria-hidden','false'));
+/* Achievement cards stay on one rotating 3D ring; touch can hold the track still. */
+const hofStage = document.querySelector('.hof-stage');
+const hofCards = document.querySelectorAll('.hof-card');
+hofCards.forEach(card=>{
+  card.setAttribute('aria-hidden','false');
+  card.setAttribute('tabindex','0');
+});
+if(hofStage){
+  const releaseHallOfFame = ()=>hofStage.classList.remove('is-paused');
+  hofStage.addEventListener('pointerdown',event=>{
+    if(event.pointerType !== 'mouse' && event.target.closest('.hof-card')) hofStage.classList.add('is-paused');
+  });
+  window.addEventListener('pointerup',releaseHallOfFame);
+  window.addEventListener('pointercancel',releaseHallOfFame);
+}
 
 // A direct return from a case study lands after the reveal observer initializes.
 // Make the linked section immediately legible instead of leaving tall cards half-faded.
