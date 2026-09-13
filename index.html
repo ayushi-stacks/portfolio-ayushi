@@ -507,7 +507,6 @@ section.panel{position:relative; padding:120px 64px 90px; max-width:1500px; marg
 .award-emblem{position:absolute;right:24px;top:-34px;z-index:7;display:grid;place-items:center;width:72px;height:72px;border-radius:50%;background:#fff7e6;border:1px solid rgba(176,79,106,.18);font-size:38px;filter:drop-shadow(0 0 8px rgba(255,193,72,.72));animation:award-glow 2.2s ease-in-out infinite;}
 .hof-card:nth-child(2n) .award-emblem{animation-delay:.45s}.hof-card:nth-child(3n) .award-emblem{animation-delay:.9s}
 @keyframes award-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,190,60,.16);filter:drop-shadow(0 0 5px rgba(255,193,72,.48))}50%{box-shadow:0 0 0 13px rgba(255,190,60,0);filter:drop-shadow(0 0 17px rgba(255,193,72,.95))}}
-@keyframes hof-mobile-depth{0%,8.333%{opacity:1}8.334%,91.667%{opacity:0}91.668%,100%{opacity:1}}
 .award-result{display:inline-flex;margin-bottom:24px;padding:7px 10px;border:1px solid rgba(176,79,106,.18);border-radius:999px;color:var(--rose-deep);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;}
 .hof-card h3{margin:0 0 10px;font:600 28px/1.05 'Playfair Display',serif;}
 .award-place{min-height:48px;margin:0;color:var(--ink-soft);font-size:13px;line-height:1.55;}
@@ -656,23 +655,20 @@ footer{background:var(--bg-1); padding:70px 64px 30px; position:relative;}
   .skill-ledger{grid-template-columns:1fr;gap:10px;margin-top:26px;}
   .skill-group{padding:16px;}
   .hof-carousel{margin-top:24px;}
-  .hof-stage{--hof-radius:126px;height:356px;margin-inline:-20px;perspective:1150px;perspective-origin:50% 46%;}
+  .hof-stage{--hof-radius:170px;height:356px;margin-inline:-20px;perspective:760px;perspective-origin:50% 46%;}
   .hof-ring{top:48%;animation-duration:26s;}
   .hof-stage::before{top:65%;width:430px;height:160px;}
   .hof-stage::after{top:64%;width:55%;height:17px;}
-  .hof-card{width:min(228px,66vw);min-height:238px;padding:36px 17px 17px;border-radius:20px;background:#fff9fb;box-shadow:0 18px 38px rgba(105,45,62,.16);animation:hof-mobile-depth 26s linear infinite reverse;animation-delay:var(--hof-delay);will-change:opacity;pointer-events:none;}
-  .hof-card:nth-child(1){--hof-delay:0s}.hof-card:nth-child(2){--hof-delay:-21.6667s}.hof-card:nth-child(3){--hof-delay:-17.3333s}.hof-card:nth-child(4){--hof-delay:-13s}.hof-card:nth-child(5){--hof-delay:-8.6667s}.hof-card:nth-child(6){--hof-delay:-4.3333s}
-  .hof-stage:has(.hof-card:is(:hover,:focus-visible)) .hof-card,.hof-stage.is-paused .hof-card{animation-play-state:paused;}
-  .award-emblem{right:17px;top:-28px;width:58px;height:58px;font-size:30px;}
+  .hof-card{width:min(168px,50vw);min-height:220px;padding:32px 14px 14px;border-radius:18px;background:#fff9fb;box-shadow:0 18px 38px rgba(105,45,62,.16);pointer-events:none;}
+  .award-emblem{right:13px;top:-24px;width:50px;height:50px;font-size:26px;}
   .award-result{margin-bottom:17px;padding:6px 9px;}
-  .hof-card h3{margin-bottom:8px;font-size:clamp(20px,6.4vw,24px);line-height:1.02;}
-  .award-place{min-height:50px;font-size:12px;line-height:1.45;}
-  .award-meta{margin-top:19px;padding-top:13px;gap:8px;font-size:9px;}
+  .hof-card h3{margin-bottom:8px;font-size:clamp(18px,5.4vw,21px);line-height:1.04;}
+  .award-place{min-height:44px;font-size:11px;line-height:1.4;}
+  .award-meta{margin-top:16px;padding-top:11px;gap:8px;font-size:8px;}
 }
 
 @media (max-width:370px){
-  .hof-stage{--hof-radius:112px;height:344px;}
-  .hof-card{width:68vw;min-height:230px;padding-inline:16px;}
+  .hof-stage{--hof-radius:160px;height:344px;}
 }
 
 @media (pointer:coarse){
